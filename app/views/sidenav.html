@@ -1,0 +1,39 @@
+<md-sidenav flex class="md-sidenav-left md-whiteframe-z2"
+      md-component-id="left"
+      md-is-locked-open="$mdMedia('gt-md')">
+    <md-divider></md-divider>
+    <md-content layout-padding>
+       <md-list flex>
+        <md-subheader class="md-no-sticky" layout="row" layout-align="end center">
+        <span>Labels</span>
+        <md-button class="md-icon-button" ng-click="showInputForLabel()"><ng-md-icon icon="add" style="fill: grey" size="20">Add Label</ng-md-icon>
+        </md-button></md-subheader>
+        <div layout="column" ng-show="flag">
+        <md-input-container>
+           <label>Give Label Name</label>
+           <input required name="labelName" ng-model="newLabel.name">
+           <div ng-messages="addLabel.labelName.$error" md-auto-hide>
+             <div ng-message="required" ng-hide="addLabel.labelName.$valid">This is required.</div>
+           </div>
+          </md-input-container>
+           <div layout="row">
+           <md-button class="md-raised" ng-click="addLabel()">Add Label</md-button>
+           <md-button class="md-raised" ng-click="cancelLabel()">Cancel</md-button>
+           </div>
+         
+         </div>
+        <md-list-item class="md-3-line" ng-repeat="label in labels">
+          <ng-md-icon icon="navigate_next" style="fill: grey" size="20"></ng-md-icon>
+          <md-button ng-click="labelToNote(label)">
+          <div class="md-list-item-text" layout="column">
+            {{label.name}}
+          </div></md-button>
+          <md-button ng-click="deleteLabel(label.id)"><ng-md-icon icon="delete" style="fill: grey" size="20"></ng-md-icon></md-button>
+        </md-list-item>
+        </md-list>
+    
+     
+    <md-divider></md-divider>
+    </md-content>
+    
+</md-sidenav>

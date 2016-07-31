@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="libraries/angular-material-sidemenu.css" rel="stylesheet">
+      <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.css' type='text/css' media='all' />
+ 
+  </head>
+  <body ng-app="googleKeepApp" layout="row" ng-cloak ng-controller="LoginCtrl" >
+
+  <md-content class="md-padding" layout-padding  ng-hide="loggedIn">
+      <form name="Login" layout="column">
+         <md-input-container>
+           <label>user name</label>
+           <input required name="userName" ng-model="user.userName">
+           <div ng-messages="Login.userName.$error" md-auto-hide>
+             <div ng-message="required" ng-hide="Login.userName.$valid">This is required.</div>
+           </div>
+         </md-input-container>
+         <md-input-container>
+           <label>password</label>
+           <input required type="password" name="pswd" ng-model="user.password">
+           <div ng-messages="Login.pswd.$error"  md-auto-hide>
+             <div ng-message="required" ng-hide="Login.pswd.$valid">This is required.</div>
+             
+           </div>
+         </md-input-container> 
+         <md-button ng-click="logIn()" class="md-raised md-primary" ng-disabled="Login.$invalid">Login</md-button>  
+      </form>
+</md-content>
+    
+    <div ng-include="'views/sideNav.html'" ng-controller='SidenavCtrl' layout="vertical" ng-show="loggedIn">
+    </div>
+    <div flex layout="column" style="width:100%" ng-show="loggedIn">
+      <div ng-include="'views/toolBar.html'" ng-controller="ToolbarCtrl">
+      </div>
+      <div flex ng-view>
+         
+      </div>
+   </div>
+    
+    
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    
+    
+    
+    
+    
+    
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+      <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/directives/notedirective.js"></script>
+        <script src="scripts/controllers/sidenav.js"></script>
+        <script src="scripts/controllers/toolbar.js"></script>
+        <script src="scripts/services/sidenavsrv.js"></script>
+        <script src="scripts/services/getbaseurl.js"></script>
+        <script src="scripts/controllers/notes.js"></script>
+        <script src="scripts/services/homepagesrv.js"></script>
+        <script src="scripts/controllers/labeltonote.js"></script>
+        <script src="scripts/filters/labeltonotefilter.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/services/loginservice.js"></script>
+        <script src="scripts/services/everyhttpblocker.js"></script>
+        <!-- endbuild -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.1/angular-material-icons.min.js"></script>
+      <script type="text/javascript" src="libraries/angular-material-sidemenu.js"></script>
+      <script type='text/javascript' src='//cdnjs.cloudflare.com/ajax/libs/angular-loading-bar/0.9.0/loading-bar.min.js'></script>
+</body>
+</html>

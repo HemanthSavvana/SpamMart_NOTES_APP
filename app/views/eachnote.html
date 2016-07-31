@@ -1,0 +1,37 @@
+<div class='md-padding' layout="row" layout-wrap>
+      <md-card >
+        <md-card-title >
+          <md-card-title-text layout="row" layout-align="center center">
+            <span class="md-subhead" ng-bind="note.name"></span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content>
+          <p ng-bind="note.body"></p>
+          <div ng-repeat="label in note.labels"><p  ng-bind="label.name"></p> </div>  <!-- TODO to print labels-->
+        </md-card-content>
+        <md-card-actions layout="row" layout-align="end center">
+          <md-button class="md-icon-button" aria-label="Edit" ng-click="editNote($event,note)">
+            <ng-md-icon icon="mode_edit" style="fill: grey" size="20"></ng-md-icon>
+          </md-button>
+          <md-button class="md-icon-button" aria-label="Delete" ng-click="deleteNotes(note.id)">
+            <ng-md-icon icon="delete" style="fill: grey" size="20"></ng-md-icon>
+          </md-button>
+
+          <md-menu>
+          <md-button aria-label="Open labels menu"  ng-click="$mdOpenMenu($event)">
+            Add Label
+          </md-button>
+          <md-menu-content>
+            <md-menu-item ng-repeat="label in allLabels">
+              <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="label.addFlag" class="md-primary">
+                  {{label.name}}
+              </md-checkbox>
+            </md-menu-item>
+            <md-button aria-label="Open labels menu"  ng-click="addLabelsToNote(note.id)">
+            Add Labels
+          </md-button>
+          </md-menu-content>
+        </md-menu>
+        </md-card-actions>
+      </md-card>
+</div>

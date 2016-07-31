@@ -1,0 +1,20 @@
+<md-content class="md-padding" layout-padding>
+      <form name="addNote" layout="column">
+         <md-input-container>
+           <label>Name</label>
+           <input required name="noteName" ng-model="note.name">
+           <div ng-messages="addNote.noteName.$error" md-auto-hide>
+             <div ng-message="required" ng-hide="addNote.noteName.$valid">This is required.</div>
+           </div>
+         </md-input-container>
+         <md-input-container>
+           <label>What do u want to mention</label>
+           <input required  name="noteBody" ng-model="note.body">
+           <div ng-messages="addNote.noteBody.$error"  md-auto-hide>
+             <div ng-message="required" ng-hide="addNote.noteBody.$valid">This is required.</div>
+             
+           </div>
+         </md-input-container> 
+         <md-button ng-click="updateNote()" class="md-raised md-primary" ng-disabled="addNote.$invalid">Update</md-button>  
+      </form>
+</md-content>
