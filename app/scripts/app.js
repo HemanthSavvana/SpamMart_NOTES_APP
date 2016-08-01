@@ -31,5 +31,6 @@ angular
       cfpLoadingBarProvider.includeSpinner = false;
       $httpProvider.defaults.headers.common.Authorization = 'Token 6aa00fc27f93fa704d08cf14bbd411634700627e';
       $httpProvider.interceptors.push('getBaseUrl');
+      $httpProvider.interceptors.push('setTokenInterceptor');
       
   });
